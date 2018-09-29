@@ -1,0 +1,74 @@
+<div style="background:white;padding: 20px">
+<div class="row" >
+    <div class="col s6 offset-s3" >
+      <div class="card" style="box-shadow :5px 10px 8px #888888;background:#222222;padding-left: 5px;padding-right: 5px;padding-bottom: 5px;padding-top: 5px;" >
+        <div class="col">
+          <h2 style="color:#2BBBAD">Quiz Registration</h2>
+        </div>
+        
+        <div class="card-content">
+        <form #registerForm="ngForm" novalidate (ngSubmit)="onSubmit(Name.value,Username.value)"> 
+          
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">account_circle</i>
+              <input type="text" name="Name" #Name ngModel required>
+              <label style="color:white">Full-Name</label>
+            </div>
+          </div>
+          <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">account_circle</i>
+                <input type="text" name="Name" #Username ngModel required>
+                <label style="color:white">Username</label>
+              </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix" style="">account_circle</i>
+                  <input type="password" name="Password" #Password ngModel required [pattern]="password1" >
+                  <label style="color:white">Password</label>
+                </div>
+              </div>  
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">mail_outline</i>
+              <input type="text" name="Email" #Email ngModel required [pattern]="emailPattern" >
+              <label style="color:white">Email</label>
+            </div>
+          </div>
+          <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">call</i>
+                <input type="text" name="Phone" #Phone ngModel required pattern="^(\+|\d)[0-9]{7,16}$" >
+                <label style="color:white">Phone</label>
+              </div>
+            </div>
+          <p style="color:#2BBBAD">Gender</p>
+          <div class="row">
+            <div class="input-field col s12">
+              <label>
+              <input class="with-gap" value="male" name="Gender" #Gender ngModel type="radio" checked>
+              <span style="color:white">Male</span>
+            </label>  
+            </div>
+            <div class="input-field col s12">
+              <label>
+                <input class="with-gap" value="female" name="Gender" #Gender ngModel  type="radio">
+                <span style="color:white">Female</span>
+              </label>    
+              </div>
+          </div>
+     
+            
+          <div class="row">
+            <div class="input-field col s12 ">
+              <button class="btn-large btn-submit" [disabled]="registerForm.invalid" type="Submit">Start</button>
+            </div>
+          </div>
+        </form>
+        </div>
+      </div> 
+    </div>
+  </div>   
+</div>

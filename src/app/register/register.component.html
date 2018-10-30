@@ -1,70 +1,77 @@
-<div style="background:white;padding: 20px">
-<div class="row" >
+
+<div class="loginDiv">
+<div class="row">
     <div class="col s6 offset-s3" >
-      <div class="card" style="box-shadow :5px 10px 8px #888888;background:#222222;padding-left: 5px;padding-right: 5px;padding-bottom: 5px;padding-top: 5px;" >
-        <div class="col">
-          <h2 style="color:#2BBBAD">Quiz Registration</h2>
+      <div class="card">
+        <div class="col s12" style="background-color:#56707d;color: white;">
+          <h2>Quiz Registration</h2>
         </div>
         
         <div class="card-content">
-        <form #registerForm="ngForm" novalidate (ngSubmit)="onSubmit(Name.value,Username.value)"> 
+        <form #registerForm="ngForm" novalidate (ngSubmit)="onSubmit(Name.value,Username.value,Password.value,Email.value,Phone.value,Gender.value)"> 
           
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">account_circle</i>
-              <input type="text" name="Name" #Name ngModel required>
-              <label style="color:white">Full-Name</label>
+              <input type="text" name="Name" #Name ngModel required [class.is-invalid]="Name.invalid && Name.touched">
+              <label style="color:black">Full-Name</label>
+              
             </div>
+           
           </div>
           <div class="row">
               <div class="input-field col s12">
                 <i class="material-icons prefix">account_circle</i>
                 <input type="text" name="Name" #Username ngModel required>
-                <label style="color:white">Username</label>
+                <label style="color:black">Username</label>
               </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                  <i class="material-icons prefix" style="">account_circle</i>
-                  <input type="password" name="Password" #Password ngModel required [pattern]="password1" >
-                  <label style="color:white">Password</label>
+                  <i class="material-icons prefix">account_circle</i>
+                  <input type="password" name="Password" #Password ngModel required  >
+                  <label style="color:black">Password</label>
                 </div>
               </div>  
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">mail_outline</i>
               <input type="text" name="Email" #Email ngModel required [pattern]="emailPattern" >
-              <label style="color:white">Email</label>
+              <label style="color:black">Email</label>
             </div>
           </div>
           <div class="row">
               <div class="input-field col s12">
                 <i class="material-icons prefix">call</i>
                 <input type="text" name="Phone" #Phone ngModel required pattern="^(\+|\d)[0-9]{7,16}$" >
-                <label style="color:white">Phone</label>
+                <label style="color:black">Phone</label>
               </div>
             </div>
-          <p style="color:#2BBBAD">Gender</p>
+          <p style="text-align:left;padding-left: 15px;">Gender</p>
           <div class="row">
-            <div class="input-field col s12">
-              <label>
-              <input class="with-gap" value="male" name="Gender" #Gender ngModel type="radio" checked>
-              <span style="color:white">Male</span>
+            <div class="input-field col s12" >
+              <label style="padding-left: 15px">
+              <input  class="with-gap" value="male" name="Gender" #Gender ngModel type="radio" checked>
+              <span style="color:black">Male</span>
+              &nbsp;
+              <input class="with-gap" value="female" name="Gender" #Gender ngModel  type="radio">
+                <span style="color:black">Female</span>
             </label>  
             </div>
-            <div class="input-field col s12">
+           <!-- <div class="input-field col s13" >
               <label>
                 <input class="with-gap" value="female" name="Gender" #Gender ngModel  type="radio">
-                <span style="color:white">Female</span>
+                <span style="color:black">Female</span>
               </label>    
-              </div>
+              </div>-->
           </div>
      
             
           <div class="row">
             <div class="input-field col s12 ">
-              <button class="btn-large btn-submit" [disabled]="registerForm.invalid" type="Submit">Start</button>
+              <button class="submitButton btn-large btn-submit" [disabled]="registerForm.invalid" type="Submit">Register</button>
             </div>
+            
           </div>
         </form>
         </div>

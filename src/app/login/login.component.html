@@ -1,35 +1,46 @@
+<html>
+<body>
+<div class="loginDiv">
 <div class="row">
   <div class="col s6 offset-s3">
     <div class="card">
-      <div class="col s6">
+      <div class="col s12" style="background-color:#56707d;color: white">
         <h2>Login</h2>
       </div>
-      <div class="card-content">
-      <form #LoginForm="ngForm" novalidate (ngSubmit)="onSubmit(Uname.value)"> 
+      <div class="loginFields">
+      <form #LoginForm="ngForm" novalidate (ngSubmit)="onSubmit(Uname.value,Password.value)"> 
         
         <div class="row">
-          <div class="input-field col s12">
+          
+          <div class="input-field col s12"style="margin-left:25px;width:90%;" >
             <i class="material-icons prefix">account_circle</i>
+            <label>Username</label> 
             <input type="text" name="uame" #Uname ngModel required>
-            <label>Username</label>
           </div>
-        </div>
-          <div class="row">
-              <div class="input-field col s12">
+              <div class="input-field col s12" style="margin-left:25px;width:90%;">
                 <i class="material-icons prefix">account_circle</i>
                 <input type="password" name="Password" #Password ngModel required >
                 <label>Password</label>
               </div>
-            </div>  
+          </div>  
         
-          
+        
         <div class="row">
           <div class="input-field col s12">
-            <button class="btn-large btn-submit" [disabled]="LoginForm.invalid" type="Submit">Login</button>
+            <button class="btn-large btn-submit submitButton " [disabled]="LoginForm.invalid" type="Submit">Login</button>
+            &nbsp;&nbsp;<button class="submitButton btn-large btn-submit" (click)="SignUp()">New User</button>
           </div>
         </div>
-      </form>
+        <div class="row" >
+        <h4 class="red-text text-darken-2" style="font-size:20px;" *ngIf="checkLogin">Please enter correct username or password</h4>
       </div>
+      </form>
+      
+       
+    </div>
     </div> 
   </div>
-</div>   
+</div>  
+</div>
+</body>
+</html>

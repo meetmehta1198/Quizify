@@ -1,0 +1,65 @@
+
+<div class="row">
+  <div class="col s6 offset-s3">
+    <div class="card">
+      <div class="col s6">
+        <h2>Add-Questions</h2>
+      </div>
+      
+    <div class="card-content">
+      <form #addQuestionForm="ngForm" novalidate (ngSubmit)="onSubmit(question.value,option1.value,option2.value,option3.value,option4.value,correctAnswer.value)" >
+
+        
+        <div class="row">
+          <div class="input-field col s12">
+           <!-- <i class="material-icons prefix">account_circle</i>-->
+            <input type="text" name="question" value=" " #question  required>
+            <label>Question</label>
+          </div>
+        </div>
+          <div class="row">
+              <div class="input-field col s12">
+              <!-- <i class="material-icons prefix">account_circle</i>-->
+                <input type="text" name="option1" #option1     required >
+                <label>Option-1</label>
+              </div>
+            </div>  
+            <div class="row">
+              <div class="input-field col s12">
+              <!--  <i class="material-icons prefix">account_circle</i>-->
+                <input type="text" name="option2" #option2 ngModel required >
+                <label>Option-2</label>
+              </div>
+            </div> 
+            <div class="row">
+                <div class="input-field col s12">
+                <!--  <i class="material-icons prefix">account_circle</i>-->
+                  <input type="text" name="option3" #option3 ngModel required >
+                  <label>Option-3</label>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="input-field col s12">
+                  <!--  <i class="material-icons prefix">account_circle</i>-->
+                    <input type="text" name="option4" #option4 ngModel required >
+                    <label>Option-4</label>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                    <!--  <i class="material-icons prefix">account_circle</i>-->
+                      <input type="text" name="correctAnswer" #correctAnswer ngModel required >
+                      <label>Correct-Answer</label>
+                    </div>
+                  </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <button class="btn-large btn-submit" [disabled]="addQuestionForm.invalid" type="Submit">Add Question</button>
+          </div>
+        </div>
+      </form>
+      </div>
+   
+    </div> 
+  </div>
+</div>   

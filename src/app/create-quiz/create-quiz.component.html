@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col s6 offset-s3">
+    <div class="card">
+      <div class="col s6">
+        <h2>Create-Quiz</h2>
+      </div>
+    <div class="card-content">
+      <form #createQuizForm="ngForm" novalidate (ngSubmit)="onSubmit(QuizType.value,NoOfQuestions.value)"> 
+        
+        <div class="row">
+          <div class="input-field col s12">
+           <!-- <i class="material-icons prefix">account_circle</i>-->
+            <input type="text" name="qname" #QuizName ngModel required>
+            <label>Quiz-Name</label>
+          </div>
+          {{QuizName.value}}
+        </div>
+          <div class="row">
+              <div class="input-field col s12">
+              <!-- <i class="material-icons prefix">account_circle</i>-->
+                <input type="text" name="quizType" #QuizType ngModel required >
+                <label>Quiz-Type</label>
+              </div>
+            </div>  
+            {{QuizType.value}}
+            <div class="row">
+              <div class="input-field col s12">
+              <!--  <i class="material-icons prefix">account_circle</i>-->
+                <input type="text" name="noOfQuestion" #NoOfQuestions ngModel required >
+                <label>Number Of Questions</label>
+              </div>
+            </div> 
+           
+            
+        <div class="row">
+          <div class="input-field col s12">
+            <button class="btn-large btn-submit" [disabled]="createQuizForm.invalid" type="Submit">Publish</button>
+          </div>
+        </div>
+      </form>
+      </div>
+    </div> 
+  </div>
+</div>   

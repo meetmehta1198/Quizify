@@ -1,0 +1,7 @@
+#footer > li > a{
+    color:white;
+    
+}
+#footer > li > a:hover{
+    color:aqua;
+}

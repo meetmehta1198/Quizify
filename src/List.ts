@@ -1,3 +1,6 @@
 export interface Questions{
-     question:object;
+     question:string,
+     options:Array<string>,
+     answer:string
+
 }

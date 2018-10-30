@@ -36,4 +36,16 @@ export class NavbarComponent implements OnInit {
     localStorage.clear();
     this.route.navigate(['/home']);
   }
+  onSubmit(data)
+  {
+    //console.log(data.value)
+    localStorage.setItem("quiz","banking")
+    this.route.navigate(['/bank'])
+  }
+  onSubmit1()
+  {
+    localStorage.setItem("quiz","programming")
+    this.route.navigate(['/quiz'])
+  }
+  
 }

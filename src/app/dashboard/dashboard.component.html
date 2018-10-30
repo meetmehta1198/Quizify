@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2 align="center">DASHBOARD</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Quiz Name</th>
+        <th>Score</th>
+        <th>Total-Questions</th>
+        <th>Time taken</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let q1 of q">
+      <tr>
+        <td>{{q1.quizName}}</td>
+        <td>{{q1.correctAnswer}}</td>
+        <td>{{q1.totalQuestions}}</td>
+         <td>{{q1.time}}</td>
+      </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  <button type="button"  class="btn btn-success" style="background-color:#56707d" (click)="onSubmit()">HOME</button>
+</div>
+
+</body>
+</html>

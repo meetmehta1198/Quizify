@@ -13,6 +13,7 @@ export class QuizComponent implements OnInit {
   
   public q=[]; 
   public answer=[];  
+  
   correctAnswer:number;
   //public ans=[];
  
@@ -20,6 +21,8 @@ export class QuizComponent implements OnInit {
   { }
 
   ngOnInit() {
+    localStorage.removeItem("correctAnswer")
+    localStorage.removeItem("totalQuestion")
     console.log(localStorage.getItem("user"))
     if(localStorage.getItem("user")==null)
     {
@@ -29,15 +32,11 @@ export class QuizComponent implements OnInit {
     this.correctAnswer=0;
     this.quizService.qnsProgress=0;
     this.quizService.seconds=0;
-    this.quizService.getQuestions().subscribe(data=>{
-      //console.log(data)
-      //this.quesList=data;
-      //console.log(this.quesList);
-      //var obj=JSON.stringify(this.quesList);
-      //console.log(obj);
-      this.q=data;
-   // console.log(this.q[0].options[0]);
-   localStorage.setItem("quiz","programming");
+    this.quizService.getQuestions(localStorage.getItem("quiz")).subscribe(data=>{
+      console.log(data)
+      this.q=data
+      console.log(this.q)
+   //localStorage.setItem("quiz","programming");
       this.startTimer();
     }
     );
@@ -50,17 +49,21 @@ export class QuizComponent implements OnInit {
   }
   Answer(qId,choice)
   {
+    
     this.answer[this.quizService.qnsProgress]=choice;
       
     //console.log(this.answer);
-    //console.log(qId.answer);
-    //console.log(choice);
-   if(choice==qId.answer)
+    console.log(qId.answer);
+    console.log(choice);
+    var temp=choice.toString()
+   if(temp==qId.answer)
    {
     
       this.quizService.qnsProgress++;
+      console.log("in if");
      this.correctAnswer++;
      localStorage.setItem("correctAnswer",this.correctAnswer.toString());
+     console.log(localStorage.getItem("correctAnswer"))
    }
    else
    {
@@ -71,13 +74,14 @@ export class QuizComponent implements OnInit {
    localStorage.setItem("time",this.displayTimeElapsed.toString());
    //console.log(localStorage.getItem("time"))
    
-    if(this.quizService.qnsProgress==2)
+    if(this.quizService.qnsProgress==this.q.length)
     {
       localStorage.setItem("ans",JSON.stringify(this.answer));
       //console.log(localStorage.getItem("ans"));
             clearInterval(this.quizService.timer);
       this.route.navigate(['/result']);
     }
+    localStorage.setItem("totalQuestion",this.q.length.toString())
   }
   displayTimeElapsed()
   {

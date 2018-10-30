@@ -16,7 +16,7 @@
     </div>
   </nav>-->
   <nav>
-    <div class="nav-wrapper" style="background-color:darkmagenta;">
+    <div class="nav-wrapper" style="background-color:#56707d">
         
       <a href="home" class="brand-logo" style="margin-left: 20px;">Online Free Quizzes & Mock Tests</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -26,7 +26,8 @@
         <li><a href="">Logical Reasoning</a></li>
         <li><a href="">SSC</a></li>
         <li><a href="">IAS</a></li>
-        <li><a href="bank">Banking</a></li>
+        <li><a #t1 (click)="onSubmit(t1)" >Banking</a></li>
+        <li><a (click)="onSubmit1()">Programming</a></li>
         <li><a href="">CBSE</a></li>
         <li *ngIf="isUser">
             <a (click)="SignOut()">Logout</a>
